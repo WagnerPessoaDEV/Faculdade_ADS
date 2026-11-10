@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Desenvolvedor - DevPoint ADS</title>
+    <script>
+        (function () {
+            var t = localStorage.getItem('devpoint-theme');
+            if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- CABEÇALHO / NAVBAR -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand">
+                <div class="brand-icon">&lt;/&gt;</div>
+                DevPoint <span>ADS</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="cadastro.html" class="active">Novo Cadastro</a></li>
+                    <li><a href="listar.php">Listagem (PHP)</a></li>
+                    <li><a href="sobre.html">Sobre o Projeto</a></li>
+                    <li>
+                        <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Alternar tema claro e escuro">
+                            <span>Escuro</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-wrapper">
+
+        <div class="form-card">
+            <div class="form-header">
+                <h2><span>&#128100;</span> Ficha de Cadastro Profissional</h2>
+                <p>Preencha os campos abaixo para cadastrar o desenvolvedor na base institucional.</p>
+            </div>
+
+            <!-- FORMULÁRIO ENVIADO PARA O SCRIPT PHP VIA MÉTODO POST COM SUPORTE A UPLOAD -->
+            <form id="form-cadastro" action="processa_cadastro.php" method="POST" enctype="multipart/form-data" novalidate>
+                
+                <div class="form-grid">
+
+                    <!-- FOTO DE PERFIL COM PREVIEW INSTANTÂNEO -->
+                    <div class="form-group form-group-full photo-upload-wrapper">
+                        <label>Foto de Perfil (Opcional)</label>
+                        <div class="photo-upload-box">
+                            <div class="avatar-preview" id="avatar-preview-box">
+                                <span id="avatar-icon">&#128100;</span>
+                                <img id="avatar-img" src="" alt="Pré-visualização" style="display: none;">
+                            </div>
+                            <div class="photo-input-area">
+                                <label for="foto" class="btn btn-secondary btn-sm" style="cursor: pointer; width: fit-content;">
+                                    &#128247; Escolher Foto
+                                </label>
+                                <input type="file" id="foto" name="foto" accept="image/png, image/jpeg, image/webp" style="display: none;">
+                                <button type="button" id="btn-remover-foto" class="btn btn-outline btn-sm" style="display: none; width: fit-content;">Remover</button>
+                                <span class="photo-hint">Formatos aceitos: JPG, PNG ou WEBP (máx. 2MB).</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NOME COMPLETO -->
+                    <div class="form-group form-group-full">
+                        <label for="nome">Nome Completo <span class="required">*</span></label>
+                        <input type="text" id="nome" name="nome" class="form-control" placeholder="Ex: Lucas Gabriel da Silva" required minlength="3">
+                        <span class="field-feedback" id="feedback-nome"></span>
+                    </div>
+
+                    <!-- E-MAIL CORPORATIVO / ACADÊMICO -->
+                    <div class="form-group">
+                        <label for="email">E-mail Profissional <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="exemplo@ads.edu.br" required>
+                        <span class="field-feedback" id="feedback-email"></span>
+                    </div>
+
+                    <!-- CPF COM MÁSCARA JS -->
+                    <div class="form-group">
+                        <label for="cpf">CPF <span class="required">*</span></label>
+                        <input type="text" id="cpf" name="cpf" class="form-control" placeholder="000.000.000-00" maxlength="14" required>
+                        <span class="field-feedback" id="feedback-cpf"></span>
+                    </div>
+
+                    <!-- TELEFONE / WHATSAPP -->
+                    <div class="form-group">
+                        <label for="telefone">Telefone / WhatsApp <span class="required">*</span></label>
+                        <input type="tel" id="telefone" name="telefone" class="form-control" placeholder="(00) 00000-0000" maxlength="15" required>
+                        <span class="field-feedback" id="feedback-telefone"></span>
+                    </div>
+
+                    <!-- CARGO / ESPECIALIDADE (SELECT) -->
+                    <div class="form-group">
+                        <label for="cargo">Especialidade / Cargo <span class="required">*</span></label>
+                        <select id="cargo" name="cargo" class="form-control" required>
+                            <option value="">Selecione a especialidade...</option>
+                            <option value="Desenvolvedor Front-End">Desenvolvedor Front-End</option>
+                            <option value="Desenvolvedor Back-End">Desenvolvedor Back-End</option>
+                            <option value="Desenvolvedor Full-Stack">Desenvolvedor Full-Stack</option>
+                            <option value="Analista de Dados / BI">Analista de Dados / BI</option>
+                            <option value="Engenheiro de DevOps">Engenheiro de DevOps</option>
+                            <option value="Engenheiro de QA / Testes">Engenheiro de QA / Testes</option>
+                        </select>
+                        <span class="field-feedback" id="feedback-cargo"></span>
+                    </div>
+
+                    <!-- NÍVEL DE SENIORIDADE (RADIO BUTTONS) -->
+                    <div class="form-group form-group-full">
+                        <label>Nível de Senioridade <span class="required">*</span></label>
+                        <div class="options-group">
+                            <label class="option-item">
+                                <input type="radio" name="nivel" value="Júnior" required> Júnior
+                            </label>
+                            <label class="option-item">
+                                <input type="radio" name="nivel" value="Pleno"> Pleno
+                            </label>
+                            <label class="option-item">
+                                <input type="radio" name="nivel" value="Sênior"> Sênior
+                            </label>
+                            <label class="option-item">
+                                <input type="radio" name="nivel" value="Especialista / Lead"> Especialista / Lead
+                            </label>
+                        </div>
+                        <span class="field-feedback" id="feedback-nivel"></span>
+                    </div>
+
+                    <!-- PRINCIPAIS COMPETÊNCIAS / HABILIDADES (CHECKBOXES) -->
+                    <div class="form-group form-group-full">
+                        <label>Tecnologias de Domínio (Selecione as que domina):</label>
+                        <div class="options-group">
+                            <label class="option-item">
+                                <input type="checkbox" name="habilidades[]" value="HTML5/CSS3"> HTML5 &amp; CSS3
+                            </label>
+                            <label class="option-item">
+                                <input type="checkbox" name="habilidades[]" value="JavaScript"> JavaScript (ES6+)
+                            </label>
+                            <label class="option-item">
+                                <input type="checkbox" name="habilidades[]" value="PHP"> PHP &amp; PDO
+                            </label>
+                            <label class="option-item">
+                                <input type="checkbox" name="habilidades[]" value="SQL/Relacional"> Bancos Relacionais (MySQL/SQLite)
+                            </label>
+                            <label class="option-item">
+                                <input type="checkbox" name="habilidades[]" value="Git/GitHub"> Git &amp; Versionamento
+                            </label>
+                            <label class="option-item">
+                                <input type="checkbox" name="habilidades[]" value="Docker"> Docker &amp; Containers
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- BIOGRAFIA / RESUMO DO PERFIL (TEXTAREA) -->
+                    <div class="form-group form-group-full">
+                        <label for="bio">Biografia / Resumo Profissional</label>
+                        <textarea id="bio" name="bio" class="form-control" rows="4" maxlength="300" placeholder="Descreva brevemente sua trajetória, principais projetos ou objetivos acadêmicos..."></textarea>
+                        <div class="textarea-char-count" id="bio-contador">0 / 300 caracteres</div>
+                    </div>
+
+                    <!-- SEÇÃO DE REDES SOCIAIS -->
+                    <div class="form-group form-group-full form-section-divider">
+                        <span class="form-section-title">&#127760; Presença Digital &amp; Redes Sociais (Opcional)</span>
+                        <p class="form-section-desc">Informe suas redes para facilitar o networking e a conexão com seu portfólio.</p>
+                    </div>
+
+                    <!-- LINKEDIN -->
+                    <div class="form-group">
+                        <label for="linkedin">LinkedIn</label>
+                        <input type="url" id="linkedin" name="linkedin" class="form-control" placeholder="https://linkedin.com/in/seuperfil">
+                    </div>
+
+                    <!-- INSTAGRAM -->
+                    <div class="form-group">
+                        <label for="instagram">Instagram</label>
+                        <input type="text" id="instagram" name="instagram" class="form-control" placeholder="@seuperfil ou link">
+                    </div>
+
+                    <!-- YOUTUBE -->
+                    <div class="form-group">
+                        <label for="youtube">YouTube</label>
+                        <input type="url" id="youtube" name="youtube" class="form-control" placeholder="https://youtube.com/@seucanal">
+                    </div>
+
+                    <!-- X (TWITTER) -->
+                    <div class="form-group">
+                        <label for="twitter_x">X (antigo Twitter)</label>
+                        <input type="text" id="twitter_x" name="twitter_x" class="form-control" placeholder="@seuperfil ou link">
+                    </div>
+
+                    <!-- TERMOS E CONDIÇÕES (CHECKBOX OBRIGATÓRIO) -->
+                    <div class="form-group form-group-full">
+                        <div class="terms-box">
+                            <input type="checkbox" id="termos" name="termos" value="aceito" required>
+                            <label for="termos">
+                                Declaro que as informações prestadas são verídicas e autorizo a utilização destes dados no contexto da disciplina acadêmica conforme a LGPD. <span class="required">*</span>
+                            </label>
+                        </div>
+                        <span class="field-feedback" id="feedback-termos"></span>
+                    </div>
+
+                </div>
+
+                <!-- BOTÕES DE SUBMISSÃO -->
+                <div class="form-actions">
+                    <button type="reset" class="btn btn-outline">Limpar Campos</button>
+                    <button type="submit" class="btn btn-primary">Concluir Cadastro</button>
+                </div>
+
+            </form>
+        </div>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="footer-content">
+            <span class="footer-badge">Análise e Desenvolvimento de Sistemas &bull; Segundo Período</span>
+            <p><strong>Desenvolvido por:</strong> <a href="https://github.com/WagnerPessoaDEV" target="_blank" rel="noopener noreferrer" class="author-name-link" title="Acessar Portfólio de Wagner Pessoa">Wagner Pessoa</a> &bull; <strong>Matrícula:</strong> 2026 0178 4633</p>
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/wagnerpessoadev/" target="_blank" rel="noopener noreferrer" class="social-btn social-btn-linkedin" title="LinkedIn">
+                    <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/wagnerpessoadev/" target="_blank" rel="noopener noreferrer" class="social-btn social-btn-instagram" title="Instagram">
+                    <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@wagnerpessoaDEV" target="_blank" rel="noopener noreferrer" class="social-btn social-btn-youtube" title="YouTube">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+                <a href="https://x.com/WagnerPessoaDEV" target="_blank" rel="noopener noreferrer" class="social-btn social-btn-x" title="X (Twitter)">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="https://www.tiktok.com/@wagnerpessoadev" target="_blank" rel="noopener noreferrer" class="social-btn social-btn-tiktok" title="TikTok">
+                    <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
+                        <path transform="translate(-0.7, -0.7)" fill="#25F4EE" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                        <path transform="translate(0.7, 0.7)" fill="#FE2C55" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                        <path fill="#FFFFFF" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                    </svg>
+                </a>
+            </div>
+            <p>&copy; 2026 DevPoint ADS &bull; Disciplina de Desenvolvimento Web em HTML5, CSS, JavaScript e PHP</p>
+            <p style="font-size: 0.8rem; color: #94a3b8;">Entrega individual via SAVA &bull; Semestre Letivo 2026-2</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+

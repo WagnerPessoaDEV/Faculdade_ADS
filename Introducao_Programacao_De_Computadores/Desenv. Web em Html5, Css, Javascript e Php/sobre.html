@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre o Projeto - DevPoint ADS</title>
+    <script>
+        (function () {
+            var t = localStorage.getItem('devpoint-theme');
+            if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- CABEÇALHO / NAVBAR -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand">
+                <div class="brand-icon">&lt;/&gt;</div>
+                DevPoint <span>ADS</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="cadastro.html">Novo Cadastro</a></li>
+                    <li><a href="listar.php">Listagem (PHP)</a></li>
+                    <li><a href="sobre.html" class="active">Sobre o Projeto</a></li>
+                    <li>
+                        <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Alternar tema claro e escuro">
+                            <span>Escuro</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-wrapper">
+
+        <section class="form-card" style="max-width: 900px;">
+            <div class="form-header">
+                <h2><span>&#127891;</span> Documentação Acadêmica do Projeto</h2>
+                <p>Trabalho Prático Integrado &bull; Semestre 2026-2 &bull; Pontuação: 2,0 pontos</p>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 2rem;">
+                
+                <!-- IDENTIFICAÇÃO ACADÊMICA E PERFIL DO ALUNO -->
+                <article class="author-card">
+                    <h3 style="color: var(--primary); margin-bottom: 0.2rem;">1. Identificação do Projeto e Aluno</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                        Projeto avaliativo prático desenvolvido com entrega individual na plataforma SAVA.
+                    </p>
+
+                    <div class="author-card-header">
+                        <div class="author-avatar-wrapper">
+                            <!-- FOTO DE PERFIL DO WAGNER -->
+                            <img src="img/wagner-perfil.png" alt="Foto de Perfil de Wagner Pessoa" class="author-avatar-img" id="author-profile-img" onerror="this.onerror=null; this.src='img/avatar-default.svg';">
+                        </div>
+
+                        <div class="author-info">
+                            <h3><a href="https://github.com/WagnerPessoaDEV" target="_blank" rel="noopener noreferrer" class="author-name-link" title="Acessar Portfólio de Wagner Pessoa">Wagner Pessoa</a></h3>
+                            <p class="author-subtitle">Aluno de Análise e Desenvolvimento de Sistemas (ADS) &bull; 2º Período</p>
+                            
+                            <!-- LINKS PARA REDES SOCIAIS COM ÍCONES OFICIAIS -->
+                            <div class="author-socials">
+                                <a href="https://www.linkedin.com/in/wagnerpessoadev/" target="_blank" rel="noopener noreferrer" class="social-btn social-btn-linkedin" title="LinkedIn">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                                    LinkedIn
+                                </a>
+                                <a href="https://www.instagram.com/wagnerpessoadev/" target="_blank" rel="noopener noreferrer" class="social-btn social-btn-instagram" title="Instagram">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                                    Instagram
+                                </a>
+                                <a href="https://www.youtube.com/@wagnerpessoaDEV" target="_blank" rel="noopener noreferrer" class="social-btn social-btn-youtube" title="YouTube">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                                    YouTube
+                                </a>
+                                <a href="https://x.com/WagnerPessoaDEV" target="_blank" rel="noopener noreferrer" class="social-btn social-btn-x" title="X (Twitter)">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                                    Twitter / X
+                                </a>
+                                <a href="https://www.tiktok.com/@wagnerpessoadev" target="_blank" rel="noopener noreferrer" class="social-btn social-btn-tiktok" title="TikTok">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                                        <path transform="translate(-0.7, -0.7)" fill="#25F4EE" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                                        <path transform="translate(0.7, 0.7)" fill="#FE2C55" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                                        <path fill="#FFFFFF" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                                    </svg>
+                                    TikTok
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background-color: var(--bg-page); padding: 1.25rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+                        <ul style="margin-left: 1.5rem; line-height: 1.8; color: var(--text-main);">
+                            <li><strong>Aluno:</strong> <a href="https://github.com/WagnerPessoaDEV" target="_blank" rel="noopener noreferrer" class="author-name-link" title="Acessar Portfólio de Wagner Pessoa">Wagner Pessoa</a></li>
+                            <li><strong>Matrícula:</strong> 2026 0178 4633</li>
+                            <li><strong>Curso:</strong> Superior de Tecnologia em Análise e Desenvolvimento de Sistemas (ADS)</li>
+                            <li><strong>Período:</strong> 2º Período (Segundo Período)</li>
+                            <li><strong>Disciplina:</strong> Desenvolvimento Web em HTML5, CSS, JavaScript e PHP</li>
+                            <li><strong>Data Limite de Postagem:</strong> 24/11/2026</li>
+                            <li><strong>Modalidade:</strong> Desenvolvimento individual com entrega no AVA/SAVA</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- ARQUITETURA E CAMADAS TÉCNICAS -->
+                <article>
+                    <h3 style="color: var(--primary); margin-bottom: 0.5rem;">2. Arquitetura das 4 Camadas Web</h3>
+                    <div class="grid-cards" style="margin-top: 1rem; margin-bottom: 0;">
+                        <div class="card" style="padding: 1.25rem;">
+                            <h4>&#127760; HTML5 Estrutural</h4>
+                            <p style="font-size: 0.88rem; margin-top: 0.4rem;">
+                                Estruturação semântica com páginas dedicadas: <code>index.html</code> (Landing), <code>cadastro.html</code> (Formulário completo) e <code>sobre.html</code>.
+                            </p>
+                        </div>
+                        <div class="card" style="padding: 1.25rem;">
+                            <h4>&#127912; CSS3 Estilizado</h4>
+                            <p style="font-size: 0.88rem; margin-top: 0.4rem;">
+                                Estilização pura no arquivo <code>css/style.css</code> com variáveis globais, design system coeso, Flexbox, CSS Grid e total responsividade para dispositivos móveis.
+                            </p>
+                        </div>
+                        <div class="card" style="padding: 1.25rem;">
+                            <h4>&#9889; JavaScript ES6+</h4>
+                            <p style="font-size: 0.88rem; margin-top: 0.4rem;">
+                                Implementado em <code>js/main.js</code> contendo máscara dinâmica de telefone e CPF, cálculo algorítmico do dígito verificador do CPF, contador de caracteres e filtro de busca instantâneo na tabela.
+                            </p>
+                        </div>
+                        <div class="card" style="padding: 1.25rem;">
+                            <h4>&#128024; PHP 8+ &amp; PDO</h4>
+                            <p style="font-size: 0.88rem; margin-top: 0.4rem;">
+                                Processamento em <code>processa_cadastro.php</code> e <code>listar.php</code> com sanitização estrita, prevenção contra XSS e SQL Injection com Prepared Statements e persistência em banco relacional SQLite.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- DIFERENCIAIS DE ENGENHARIA -->
+                <article>
+                    <h3 style="color: var(--primary); margin-bottom: 0.5rem;">3. Decisões de Engenharia de Software</h3>
+                    <p style="color: var(--text-muted); line-height: 1.7;">
+                        Como estudante do 2º período de ADS, o projeto foi concebido priorizando a <strong>portabilidade imediata</strong>, a <strong>experiência de uso</strong> (tema claro/escuro persistente e pré-visualização instantânea de foto) e a <strong>segurança em camadas</strong>. 
+                        A utilização do driver SQLite via PDO dispensa qualquer necessidade de importação manual de scripts SQL ou configuração prévia de credenciais de banco de dados por parte da professora: ao rodar o projeto, a base <code>database.sqlite</code> e a tabela relacional são criadas de forma totalmente transparente e automática.
+                    </p>
+                </article>
+
+                <!-- LINKS DE ACESSO RÁPIDO -->
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: flex-start; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+                    <a href="cadastro.html" class="btn btn-primary">Testar Formulário de Cadastro</a>
+                    <a href="listar.php" class="btn btn-secondary">Ver Dados no PHP</a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="footer-content">
+            <span class="footer-badge">Análise e Desenvolvimento de Sistemas &bull; Segundo Período</span>
+            <p><strong>Desenvolvido por:</strong> <a href="https://github.com/WagnerPessoaDEV" target="_blank" rel="noopener noreferrer" class="author-name-link" title="Acessar Portfólio de Wagner Pessoa">Wagner Pessoa</a> &bull; <strong>Matrícula:</strong> 2026 0178 4633</p>
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/wagnerpessoadev/" target="_blank" rel="noopener noreferrer" class="social-btn social-btn-linkedin" title="LinkedIn">
+                    <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/wagnerpessoadev/" target="_blank" rel="noopener noreferrer" class="social-btn social-btn-instagram" title="Instagram">
+                    <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@wagnerpessoaDEV" target="_blank" rel="noopener noreferrer" class="social-btn social-btn-youtube" title="YouTube">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+                <a href="https://x.com/WagnerPessoaDEV" target="_blank" rel="noopener noreferrer" class="social-btn social-btn-x" title="X (Twitter)">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="https://www.tiktok.com/@wagnerpessoadev" target="_blank" rel="noopener noreferrer" class="social-btn social-btn-tiktok" title="TikTok">
+                    <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
+                        <path transform="translate(-0.7, -0.7)" fill="#25F4EE" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                        <path transform="translate(0.7, 0.7)" fill="#FE2C55" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                        <path fill="#FFFFFF" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                    </svg>
+                </a>
+            </div>
+            <p>&copy; 2026 DevPoint ADS &bull; Disciplina de Desenvolvimento Web em HTML5, CSS, JavaScript e PHP</p>
+            <p style="font-size: 0.8rem; color: #94a3b8;">Entrega individual via SAVA &bull; Semestre Letivo 2026-2</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
