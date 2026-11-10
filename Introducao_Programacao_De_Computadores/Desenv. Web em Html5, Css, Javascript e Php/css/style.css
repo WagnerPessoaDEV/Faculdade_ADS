@@ -1037,6 +1037,11 @@ tbody tr:hover {
   display: block;
 }
 
+.author-info {
+  flex: 1;
+  min-width: 240px;
+}
+
 .author-info h3 {
   font-size: 1.4rem;
   color: var(--text-main);
@@ -1052,13 +1057,13 @@ tbody tr:hover {
 .author-socials {
   margin-top: 0.5rem;
   display: flex;
-  gap: 0.5rem;
+  gap: 0.42rem;
   flex-wrap: wrap;
 }
 
 .author-socials .social-btn {
-  padding: 0.35rem 0.75rem;
-  font-size: 0.85rem;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
 }
 
 .author-name-link {
