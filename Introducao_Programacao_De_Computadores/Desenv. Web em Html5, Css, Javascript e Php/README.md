@@ -1,6 +1,6 @@
 # DevPoint ADS - Sistema de Gestão e Cadastro de Desenvolvedores
 
-> **Aluno:** Wagner Pessoa ([GitHub / Portfólio](https://github.com/WagnerPessoaDEV))  
+> **Aluno:** Wagner Pessoa ([Portfólio](https://wagnerpessoa.me) &bull; [GitHub](https://github.com/WagnerPessoaDEV))  
 > **Matrícula:** 2026 0178 4633  
 > **Curso:** Tecnologia em Análise e Desenvolvimento de Sistemas (ADS) — 2º Período  
 > **Disciplina:** Desenvolvimento Web em HTML5, CSS, JavaScript e PHP (2026-2)  

@@ -652,6 +652,18 @@ select.form-control option {
   color: #ffffff;
 }
 
+.social-btn-portfolio {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #ffffff;
+}
+
+.footer-socials .social-btn-portfolio {
+  width: auto;
+  padding: 0 0.8rem;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+}
+
 [data-theme="dark"] .social-btn-x,
 [data-theme="dark"] .social-btn-tiktok {
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
