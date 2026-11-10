@@ -1,131 +1,149 @@
-# DevPoint ADS - Sistema de Gestão e Cadastro de Desenvolvedores
+# DevPoint ADS — Sistema de Gestão e Cadastro de Desenvolvedores
 
-> **Aluno:** Wagner Pessoa ([Portfólio](https://wagnerpessoa.me) &bull; [GitHub](https://github.com/WagnerPessoaDEV))  
-> **Matrícula:** 2026 0178 4633  
-> **Curso:** Tecnologia em Análise e Desenvolvimento de Sistemas (ADS) — 2º Período  
-> **Disciplina:** Desenvolvimento Web em HTML5, CSS, JavaScript e PHP (2026-2)  
-> **Pontuação:** Até 2,0 pontos  
-> **Prazo de Entrega:** Até 24/11/2026  
-> **Entrega:** Individual via SAVA / Trabalho  
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![PHP](https://img.shields.io/badge/PHP-8.3-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-PDO-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+
+> Aplicação web full-stack desenvolvida para a disciplina **Desenvolvimento Web em HTML5, CSS, JavaScript e PHP (2026-2)** do curso de **Análise e Desenvolvimento de Sistemas (ADS)**.
+
+---
+
+## 📋 Informações Acadêmicas
+
+| Campo | Detalhe |
+| :--- | :--- |
+| **Aluno** | Wagner Pessoa |
+| **Matrícula** | `2026 0178 4633` |
+| **Curso / Período** | Análise e Desenvolvimento de Sistemas (ADS) — 2º Período |
+| **Disciplina** | Desenvolvimento Web em HTML5, CSS, JavaScript e PHP (2026-2) |
+| **Pontuação** | Até 2,0 pontos |
+| **Entrega** | Individual via SAVA / Trabalho (até 24/11/2026) |
 
 ---
 
 ## 🎯 Visão Geral do Projeto
 
-O **DevPoint ADS** é uma aplicação web completa desenvolvida para cadastrar, validar, persistir e gerenciar perfis de desenvolvedores e profissionais de tecnologia. O projeto integra de forma coesa as quatro tecnologias fundamentais da web moderna (**HTML5**, **CSS3**, **JavaScript** e **PHP** com **PDO / SQLite**), oferecendo tema **Claro e Escuro**, upload de foto de perfil, validação matemática de CPF e integração com redes sociais.
+O **DevPoint ADS** é uma plataforma para cadastro, validação, persistência e gerenciamento de perfis de desenvolvedores. O sistema foi construído integrando de ponta a ponta as quatro tecnologias exigidas na disciplina — **HTML5 semântico**, **CSS3 autoral com Tema Claro e Escuro**, **JavaScript ES6+ reativo** e **PHP 8+ com PDO** — priorizando portabilidade imediata, responsividade e segurança em camadas.
 
 ---
 
-## ✅ Checklist de Requisitos Atendidos
+## ✅ Checklist de Requisitos da Disciplina
 
-| Requisito da Disciplina | Arquivos / Implementação | Status |
+| Requisito | Implementação no Projeto | Status |
 | :--- | :--- | :---: |
-| **Páginas HTML** | `index.html` (Página Inicial), `sobre.html` (Documentação Acadêmica e Perfil) | **100% Atendido** |
-| **Página de Cadastro** | `cadastro.html` (Formulário completo com upload de foto, redes sociais e validações) | **100% Atendido** |
-| **Arquivo CSS** | `css/style.css` (Design System autoral com CSS Variables, Tema Claro/Escuro, Flexbox, Grid e Responsividade) | **100% Atendido** |
-| **Arquivo JS** | `js/main.js` (Alternância de tema Claro/Escuro, pré-visualização de foto, máscaras de telefone/CPF, módulo 11 de CPF, filtro em tempo real) | **100% Atendido** |
-| **Arquivo PHP** | `processa_cadastro.php`, `listar.php`, `excluir.php`, `db.php` (PDO, Prepared Statements, Upload seguro e Sanitização) | **100% Atendido** |
+| **Páginas HTML** | `index.html` (Apresentação), `cadastro.html` (Formulário), `sobre.html` (Documentação e Perfil) | Concluído |
+| **Página de Cadastro** | `cadastro.html` com inputs HTML5, upload de foto, redes sociais e validações | Concluído |
+| **Arquivo CSS** | `css/style.css` com Design System por variáveis, Tema Claro/Escuro, Grid, Flexbox e layout responsivo | Concluído |
+| **Arquivo JS** | `js/main.js` com alternância de tema, preview de foto, máscaras, validação de CPF e filtro em tempo real | Concluído |
+| **Arquivos PHP** | `db.php`, `processa_cadastro.php`, `listar.php` e `excluir.php` com PDO, Prepared Statements e sanitização | Concluído |
 
 ---
 
-## 📁 Estrutura de Diretórios do Projeto
+## ✨ Principais Funcionalidades
+
+- **🌗 Tema Claro e Escuro em Todo o Sistema:** Alternância instantânea no menu superior, salvando a preferência no `localStorage` (`devpoint-theme`), respeitando o tema do sistema operacional (`prefers-color-scheme`) e evitando flash visual na navegação entre páginas.
+- **📸 Upload de Foto de Perfil com Preview:** Seleção de imagem (`JPG`, `PNG` ou `WEBP`, até 2 MB) com pré-visualização instantânea no navegador via `FileReader` e armazenamento seguro em `uploads/`.
+- **🛡️ Validações em Duas Camadas (Front-End + Back-End):**
+  - **Client-Side (`js/main.js`):** Máscara dinâmica para telefone e CPF, contador de caracteres na biografia (máximo 300) e validação matemática oficial do CPF pelo algoritmo de módulo 11.
+  - **Server-Side (`processa_cadastro.php`):** Revalidação completa no PHP, sanitização contra XSS (`filter_input`, `htmlspecialchars`) e proteção contra SQL Injection com **Prepared Statements** no PDO.
+- **🔎 Listagem Dinâmica e Busca Instantânea (`listar.php`):** Tabela responsiva com avatar, dados formatados, badges clicáveis das redes sociais cadastradas, tags de competências, mensagens flash de feedback, filtro em tempo real sem recarregar a página e exclusão segura (`excluir.php`).
+- **🔗 Rodapé Integrado:** Ícones SVG oficiais para **LinkedIn**, **Instagram**, **YouTube**, **X**, **TikTok**, **GitHub** e botão direto para o **Portfólio** (`wagnerpessoa.me`).
+
+---
+
+## 📁 Estrutura de Diretórios
 
 ```text
 Desenv. Web em Html5, Css, Javascript e Php/
-│
 ├── css/
-│   └── style.css            # Folha de estilos autoral (Tema Claro/Escuro, Grid, Flexbox, Responsivo)
-│
+│   └── style.css               # Estilos globais, Tema Claro/Escuro, Grid, Flexbox e responsividade
 ├── img/
-│   ├── wagner-perfil.png    # Foto de perfil do autor exibida na página sobre.html
-│   └── avatar-default.svg   # Avatar SVG padrão de fallback
-│
+│   ├── wagner-perfil.png       # Foto de perfil do autor exibida em sobre.html
+│   └── avatar-default.svg      # Avatar SVG padrão de fallback
 ├── js/
-│   └── main.js              # Tema Claro/Escuro, preview de foto, máscaras, validação de CPF e filtro
-│
-├── uploads/                 # Diretório de armazenamento das fotos enviadas pelo formulário
-│
-├── index.html               # Página inicial (Landing page e apresentação das camadas)
-├── cadastro.html            # Página de cadastro com upload de imagem, redes sociais e validações
-├── sobre.html               # Documentação acadêmica do projeto e perfil do aluno
-│
-├── db.php                   # Camada de conexão PDO e inicialização/migração automática do banco
-├── processa_cadastro.php    # Controlador de recebimento POST, upload de foto, sanitização e persistência
-├── listar.php               # Listagem dinâmica PHP com foto, badges de redes sociais e busca reativa
-├── excluir.php              # Script PHP para exclusão segura de registros por ID
-│
-├── database.sql             # Script SQL opcional para uso com MySQL / phpMyAdmin
-├── database.sqlite          # Banco de dados relacional SQLite (gerado automaticamente na execução)
-└── README.md                # Manual do projeto e documentação acadêmica
+│   └── main.js                 # Tema Claro/Escuro, preview de foto, máscaras, CPF e busca na tabela
+├── uploads/                    # Armazenamento das fotos enviadas pelo formulário
+├── index.html                  # Página inicial (Landing Page)
+├── cadastro.html               # Página de cadastro de desenvolvedores
+├── sobre.html                  # Documentação acadêmica e card de perfil do aluno
+├── db.php                      # Conexão PDO e criação/migração automática da tabela
+├── processa_cadastro.php       # Recebimento POST, upload de imagem, validação e INSERT
+├── listar.php                  # Consulta PDO e exibição dinâmica dos cadastros
+├── excluir.php                 # Exclusão segura de registro por ID
+├── database.sql                # Script SQL opcional para uso com MySQL / phpMyAdmin
+├── database.sqlite             # Banco SQLite gerado automaticamente na primeira execução
+└── README.md                   # Documentação do projeto
 ```
 
 ---
 
-## 🚀 Como Executar o Projeto
+## 🗄️ Estrutura do Banco de Dados (`desenvolvedores`)
 
-O projeto utiliza **SQLite via PDO** para garantir **portabilidade imediata (Zero-Configuração)**: ao executar a aplicação, a base `database.sqlite` e a tabela `desenvolvedores` são criadas automaticamente sem exigir configuração manual de usuário/senha de banco de dados.
+O banco SQLite (`database.sqlite`) é criado automaticamente por `inicializarTabela()` em `db.php` na primeira execução, contendo as seguintes colunas:
 
-### 💡 Opção 1: Servidor Embutido do PHP (Recomendado e mais rápido)
+| Coluna | Tipo (SQLite / MySQL) | Descrição |
+| :--- | :--- | :--- |
+| `id` | `INTEGER` / `INT` (PK, Auto Increment) | Identificador único do registro |
+| `nome` | `TEXT` / `VARCHAR(150)` | Nome completo do desenvolvedor |
+| `email` | `TEXT` / `VARCHAR(150)` (UNIQUE) | E-mail profissional/acadêmico |
+| `cpf` | `TEXT` / `VARCHAR(14)` | CPF formatado e validado |
+| `telefone` | `TEXT` / `VARCHAR(20)` | Telefone / WhatsApp com DDD |
+| `cargo` | `TEXT` / `VARCHAR(50)` | Especialidade / cargo selecionado |
+| `nivel` | `TEXT` / `VARCHAR(30)` | Nível de senioridade |
+| `habilidades` | `TEXT` | Lista de tecnologias marcadas |
+| `bio` | `TEXT` | Resumo profissional (até 300 caracteres) |
+| `foto` | `TEXT` / `VARCHAR(255)` | Caminho relativo da foto salva em `uploads/` |
+| `linkedin` | `TEXT` / `VARCHAR(255)` | URL do perfil no LinkedIn |
+| `instagram` | `TEXT` / `VARCHAR(255)` | Usuário ou URL do Instagram |
+| `youtube` | `TEXT` / `VARCHAR(255)` | URL do canal no YouTube |
+| `twitter_x` | `TEXT` / `VARCHAR(255)` | Usuário ou URL no X (Twitter) |
+| `status` | `TEXT` / `VARCHAR(20)` | Status do cadastro (padrão `'Ativo'`) |
+| `criado_em` | `DATETIME` / `TIMESTAMP` | Data e hora do cadastro |
 
-1. Abra o terminal (PowerShell, CMD ou Bash) dentro da pasta do projeto:
-   ```bash
+---
+
+## 🚀 Como Executar Localmente
+
+Por utilizar **SQLite via PDO** como driver padrão, o projeto funciona imediatamente sem necessidade de configurar usuário, senha ou importar bancos manualmente.
+
+### Opção 1: Servidor Embutido do PHP (Recomendado)
+
+1. Abra o terminal na pasta do projeto:
+   ```powershell
    cd "e:\Faculdade_ADS\Introducao_Programacao_De_Computadores\Desenv. Web em Html5, Css, Javascript e Php"
    ```
-2. Inicie o servidor PHP nativo:
-   ```bash
+2. Inicie o servidor local:
+   ```powershell
    php -S 127.0.0.1:8000
    ```
-3. Abra seu navegador e acesse:
+3. Acesse no navegador:
    ```text
    http://127.0.0.1:8000
    ```
 
----
+> **Requisito:** Ter a extensão `pdo_sqlite` habilitada no `php.ini` (PHP 8+).
 
-### 💡 Opção 2: Via XAMPP / Laragon / WampServer
+### Opção 2: XAMPP / Laragon / WampServer
 
-1. Copie toda a pasta do projeto para o diretório raiz do seu servidor local:
-   - No **XAMPP**: `C:\xampp\htdocs\devpoint-ads`
-   - No **Laragon**: `C:\laragon\www\devpoint-ads`
-2. Inicie o **Apache** pelo painel do servidor.
-3. Acesse pelo navegador:
-   ```text
-   http://localhost/devpoint-ads/
-   ```
-4. *(Opcional)* Se desejar utilizar **MySQL** em vez de SQLite:
-   - Abra `db.php` e altere `define('DB_DRIVER', 'mysql');`.
-   - No phpMyAdmin, importe o arquivo `database.sql` incluído na pasta.
+1. Copie a pasta do projeto para o diretório web do servidor (`C:\xampp\htdocs\devpoint-ads` ou `C:\laragon\www\devpoint-ads`).
+2. Inicie o serviço **Apache**.
+3. Acesse `http://localhost/devpoint-ads/`.
+4. *(Opcional)* Para utilizar **MySQL** em vez de SQLite:
+   - Altere `define('DB_DRIVER', 'mysql');` em `db.php` (e ajuste host/usuário/senha se necessário).
+   - Importe o arquivo `database.sql` no **phpMyAdmin**.
 
 ---
 
-## 🛡️ Destaques Técnicos e Funcionalidades
+## 👨‍💻 Autor e Links
 
-1. **Tema Claro e Escuro Completo (`css/style.css` + `js/main.js`):**
-   - Alternância instantânea entre modo Claro e Escuro pelo botão no cabeçalho de todas as páginas.
-   - Persistência da preferência em `localStorage` (`devpoint-theme`), detecção automática do sistema operacional (`prefers-color-scheme`) e inicialização no `<head>` para evitar flashes visuais na troca de páginas.
+**Wagner Pessoa** — Estudante de Análise e Desenvolvimento de Sistemas (2º Período)
 
-2. **Upload de Foto de Perfil com Pré-visualização:**
-   - No formulário (`cadastro.html`), o JavaScript lê a imagem via `FileReader`, valida formato (`JPG`, `PNG`, `WEBP`) e tamanho (máximo 2 MB) e exibe o preview instantâneo.
-   - No back-end (`processa_cadastro.php`), o PHP valida novamente o arquivo e o armazena em `uploads/` com nome único.
-
-3. **Segurança em Camadas (Front-End + Back-End):**
-   - **Client-Side:** JavaScript aplica máscaras dinâmicas de telefone e CPF, contador de caracteres da biografia e cálculo matemático oficial dos dígitos verificadores do CPF (módulo 11).
-   - **Server-Side:** O PHP valida e sanitiza todas as entradas (`filter_input`, `htmlspecialchars`, `trim`) e utiliza **Prepared Statements** no PDO, prevenindo ataques XSS e SQL Injection.
-
-4. **Listagem Dinâmica e Pesquisa Reativa (`listar.php`):**
-   - Exibe avatar, dados formatados, links diretos das redes sociais (LinkedIn, Instagram, YouTube, X), competências técnicas, data de cadastro e exclusão segura com confirmação.
-   - Campo de busca instantânea em JavaScript filtra registros em tempo real sem recarregar a página.
-
-5. **Redes Sociais e Portfólio no Rodapé:**
-   - Ícones vetoriais SVG oficiais para **LinkedIn**, **Instagram**, **YouTube**, **X** e **TikTok**, além de link direto no nome do autor para o portfólio no GitHub.
-
----
-
-## 👨‍💻 Dados de Envio para a Professora no SAVA
-
-- **Aluno:** Wagner Pessoa
-- **Matrícula:** 2026 0178 4633
-- **Curso:** Tecnologia em Análise e Desenvolvimento de Sistemas (ADS) — 2º Período
-- **Disciplina:** Desenvolvimento Web em HTML5, CSS, JavaScript e PHP (2026-2)
-- **Data da Entrega:** Até 24/11/2026
-- **Ambiente Testado:** PHP 8.3.33 + Navegadores modernos (Google Chrome, Firefox, Microsoft Edge)
+- 🌐 **Portfólio:** [wagnerpessoa.me](https://wagnerpessoa.me)
+- 💻 **GitHub:** [github.com/WagnerPessoaDEV](https://github.com/WagnerPessoaDEV)
+- 💼 **LinkedIn:** [linkedin.com/in/wagnerpessoadev](https://www.linkedin.com/in/wagnerpessoadev/)
+- 📸 **Instagram:** [@wagnerpessoadev](https://www.instagram.com/wagnerpessoadev/)
+- ▶️ **YouTube:** [@wagnerpessoaDEV](https://www.youtube.com/@wagnerpessoaDEV)
+- ✖️ **X (Twitter):** [@WagnerPessoaDEV](https://x.com/WagnerPessoaDEV)
+- 🎵 **TikTok:** [@wagnerpessoadev](https://www.tiktok.com/@wagnerpessoadev)
