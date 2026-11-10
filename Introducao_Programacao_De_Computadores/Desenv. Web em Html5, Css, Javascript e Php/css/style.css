@@ -652,6 +652,11 @@ select.form-control option {
   color: #ffffff;
 }
 
+.social-btn-github {
+  background-color: #24292e;
+  color: #ffffff;
+}
+
 .social-btn-portfolio {
   background: linear-gradient(135deg, var(--primary), var(--accent));
   color: #ffffff;
@@ -665,7 +670,8 @@ select.form-control option {
 }
 
 [data-theme="dark"] .social-btn-x,
-[data-theme="dark"] .social-btn-tiktok {
+[data-theme="dark"] .social-btn-tiktok,
+[data-theme="dark"] .social-btn-github {
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
 }
 
